@@ -17,7 +17,8 @@ class userController extends Controller
     public function index()
     {
         // check if user already give the quiz 
-        $score = User::where('id',Auth::user()->id)->first();
+        $score = User::where('id',Auth::user()->id)->first()->score;
+        // dd($score);
         if(!empty($score)){
             return view('user.thankyou');
         }else{
